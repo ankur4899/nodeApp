@@ -4,7 +4,8 @@ const hbs=require('hbs');
 const fs=require('fs');
 
 var app=express();
-var port=process.eventNames.PORT||3000;
+var port=process.evt.PORT||3000;
+
 hbs.registerPartials(__dirname+'/views/partials');
 app.set('view-engine','hbs');
 
