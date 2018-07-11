@@ -5,6 +5,7 @@ const bodyParser=require('body-parser');
 const {mongoose}=require('./server/db/mongoose');
 var {Todo}=require('./server/models/todo');
 var {User}=require('./server/models/user');
+var {authenticate} = require('./server/middleware/authenticate');
 
 
 // const hbs=require('hbs');
@@ -90,6 +91,12 @@ app.post('/users',(req,res)=>{
    });
 
 });
+
+
+app.get('/users/me',authenticate,(req,res)=>{
+   
+    res.send(req.user);
+})
 
 
 app.delete('/todos/:id',(req,res)=>{
